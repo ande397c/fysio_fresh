@@ -1,0 +1,71 @@
+# Node.js
+node_modules/
+package-lock.json
+yarn.lock
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Vue.js files and folders
+dist/
+!.nuxt/dist/ # Nuxt.js: Keep Nuxt dist folder for static deployment
+
+# Local environment files
+.env.local
+.env.*.local
+
+# Editor directories and files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# MacOS files
+.DS_Store
+
+# Temporary files
+tmp/
+temp/
+
+# Build output
+build/
+
+# Dependency directories
+jspm_packages/
+
+# Optional npm cache directory
+.npm/
+
+# Optional eslint cache
+.eslintcache
+
+# Coverage directory used by tools like istanbul
+coverage/
+
+# Production files
+*.gz
+*.zip
+
+# TypeScript files
+*.tsbuildinfo
+
+# Local files
+*.local
+
+# IDE settings and workspace
+/.idea
+/.vscode
+
+# Lint results
+lint-staged.config.js
+stylelint.config.js
+
+# Test results
+/coverage/
