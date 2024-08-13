@@ -1,25 +1,23 @@
 <script setup lang="ts">
-import IconeElipsis from "../components/icons/IconeElipsis.vue";
+import IconElipsis from "./icons/IconElipsis.vue";
+import IconPlus from "./icons/IconPlus.vue";
 defineProps<{
  title: string;
 }>();
 </script>
 
 <template>
- <div class="bg-purple-darken-2 ma-2 mb-0 rounded d-flex flex-column" style="width: 20rem; height: 100%">
+ <div class="bg-purple-darken-2 ma-2 mb-0 rounded d-flex flex-column column">
   <div class="d-flex justify-space-between align-center px-3 pt-2">
    <p>{{ title }}</p>
-   <IconeElipsis />
+   <IconElipsis />
   </div>
-  <div class="pa-3 flex-grow-1">
+  <div class="pa-3 flex-grow-1 overflow-y-auto column-container">
    <slot />
   </div>
-  <v-card class="mx-auto mt-2" height="fitContent" width="100%" hover>
-   <v-toolbar density="compact" class="bg-purple-darken-2">
-    <v-app-bar-nav-icon variant="text">
-     <IconeElipsis />
-    </v-app-bar-nav-icon>
-
+  <v-card class="mx-auto mt-2" width="100%" hover>
+   <v-toolbar density="compact" class="bg-purple-darken-2 px-4" @click="$emit('addCard')">
+    <IconPlus />
     <v-toolbar-title class="text-subtitle-1">Add another card</v-toolbar-title>
    </v-toolbar>
   </v-card>
@@ -27,15 +25,13 @@ defineProps<{
 </template>
 
 <style scoped>
-/* Ensure the container takes full height */
-.bg-purple-darken-2 {
- display: flex;
- flex-direction: column;
- height: 100%;
+.column {
+ max-width: 20rem;
+ width: 20rem;
+ height: fit-content;
 }
 
-/* Allow the main content to grow and push the card to the bottom */
-.flex-grow-1 {
- flex-grow: 1;
+.column-container {
+ max-height: 80vh;
 }
 </style>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import IconeElipsis from "@/components/icons/IconeElipsis.vue"
+import IconDelete from "@/components/icons/IconDelete.vue"
 defineProps<{
   title: string
   desc: string
@@ -8,13 +8,32 @@ defineProps<{
 
 <template>
   <v-card  
-    class="mx-auto"
+    class="card mx-auto position-relative"
     :title="title"
-    append-icon=IconeElipsis
     >
-    
     <v-card-text>
      {{ desc }}
+<v-card-actions class="position-absolute top-0 right-0 hide card-actions">
+<v-btn icon="mdi-delete" @click="$emit('removeCard')" class="text-red-darken-3">
+<IconDelete/>
+</v-btn>
+</v-card-actions>
     </v-card-text class="pa-0">
-  </v-card>
+  </v-card> 
 </template>
+
+<style scoped>
+
+.v-card-actions {
+  transition: all 0.1s;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+.card:hover .card-actions{
+visibility: visible;
+}
+
+</style>
