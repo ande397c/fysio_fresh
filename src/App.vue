@@ -4,8 +4,7 @@ import draggable from "vuedraggable";
 import Column from "./components/Column.vue";
 import Card from "./components/Card.vue";
 import { boardData } from "@/data/boardData";
-import type { TaskColumn } from "./types/TaskColumn";
-import type { Task } from "./types/Task";
+import type { TaskColumn, Task } from "./types";
 
 const data = ref<TaskColumn[]>([]);
 
@@ -13,7 +12,7 @@ onMounted(() => {
   data.value = boardData;
 });
 
-const removeCard = (card: Task) => {
+const removeTask = (card: Task) => {
   const column = data.value.find((col) =>
     col.tasks.some((task) => task.id === card.id)
   );
@@ -26,17 +25,24 @@ const removeCard = (card: Task) => {
   }
 };
 
-const addCard = (column: any) => {
-  console.log(column)
-}
-
+const addTask = (columnId: number, card: { title: string; desc: string }) => {
+  const column = data.value.find((col) => col.id === columnId);
+  if (column) {
+    const newCard: Task = {
+      id: Date.now(),
+      title: card.title,
+      desc: card.desc,
+    };
+    column.tasks.push(newCard);
+  }
+};
 </script>
 
 <template>
   <v-app class="grey">
     <div class="d-flex overflow-x-auto">
       <div class="d-flex flex-nowrap">
-        <Column v-for="column in data" :key="column.id" :title="column.title" @addCard="addCard(column)">
+        <Column v-for="column in data" :key="column.id" :title="column.title" @addTask="addTask(column.id, $event)">
           <draggable
             v-model="column.tasks"
             :animation="200"
@@ -44,7 +50,7 @@ const addCard = (column: any) => {
             group="tasks"
           >
             <template #item="{ element }">
-              <Card :key="element.id" :title="element.title" :desc="element.desc" class="mt-3 cursor-move" @removeCard="removeCard(element)" />
+              <Card :key="element.id" :title="element.title" :desc="element.desc" class="mt-3 cursor-move" @removeTask="removeTask(element)" />
             </template>
           </draggable>
         </Column>

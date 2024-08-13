@@ -1,5 +1,4 @@
-import { type Task } from "@/types/Task";
-import {type TaskColumn} from "@/types/TaskColumn"
+import type { Task, TaskColumn } from "@/types";
 
 export const tasks: Task[] = [
  {
