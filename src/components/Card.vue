@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import IconeElipsis from "@/components/icons/IconeElipsis.vue"
 defineProps<{
   title: string
   desc: string
@@ -6,10 +7,14 @@ defineProps<{
 </script>
 
 <template>
-  <v-card class="my-2">
-    <v-card-title>{{ title }}</v-card-title>
+  <v-card  
+    class="mx-auto"
+    :title="title"
+    append-icon=IconeElipsis
+    >
+    
     <v-card-text>
      {{ desc }}
-    </v-card-text>
+    </v-card-text class="pa-0">
   </v-card>
 </template>
