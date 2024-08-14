@@ -62,9 +62,9 @@ const addColumn = async (column: { title: string }) => {
 </script>
 
 <template>
-  <v-app class="grey">
-    <div class="pa-2">
-      <h1 class="text-h6">Awesome project management</h1>
+  <v-app class="bg-grey-lighten-4">
+    <div class="pa-3">
+      <h1 class="text-h6">Fysiofresh project management</h1>
     </div>
     <div class="d-flex overflow-x-auto" ref="containerRef">
       <div class="d-flex flex-nowrap">
@@ -86,6 +86,6 @@ const addColumn = async (column: { title: string }) => {
 .ghost-card {
   opacity: 0.5;
   background: #f7fafc;
-  border: 1px solid #4299e1;
+  border: 2px solid #88706F;
 }
 </style>

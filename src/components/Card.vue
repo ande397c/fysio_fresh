@@ -9,13 +9,13 @@ defineProps<{
 
 <template>
  <v-card class="card mx-auto position-relative">
-  <v-card-title>{{ title }}</v-card-title>
+  <v-card-title class="pb-0 text-subtitle-1 font-weight-bold text-grey-darken-3">{{ title }}</v-card-title>
   <v-card-text class="pt-0 pb-1">
    {{ desc }}
    <v-card-actions class="card-actions position-absolute top-0 right-0">
-    <v-btn icon="mdi-delete" class="text-red-darken-3" size="small" @click="$emit('removeTask')">
+    <v-btn icon="mdi-delete" class="" size="small" @click="$emit('removeTask')">
      <IconDelete />
-     <v-tooltip content-class="bg-red" activator="parent" location="end">Delete task</v-tooltip>
+     <v-tooltip content-class="bg-brown-darken-1" activator="parent" location="end">Delete task</v-tooltip>
     </v-btn>
    </v-card-actions>
   </v-card-text>

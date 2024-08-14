@@ -25,9 +25,9 @@ const submit = () => {
 </script>
 
 <template>
- <div class="bg-purple-darken-2 ma-2 mb-0 rounded d-flex flex-column column">
+ <div class="bg-grey-lighten-2 ma-2 mb-0 rounded d-flex flex-column column">
   <v-card v-if="!isCreatingNewColumn" class="mx-auto" width="100%" hover @click="toggle">
-   <v-toolbar density="compact" class="bg-purple-darken-2 opacity-80 px-4">
+   <v-toolbar density="compact" class="bg-brown-lighten-2 px-4">
     <IconPlus />
     <v-toolbar-title class="text-subtitle-1">Add list</v-toolbar-title>
    </v-toolbar>

@@ -37,19 +37,19 @@ const submit = () => {
 </script>
 
 <template>
- <div class="bg-purple-darken-2 ma-2 mb-0 rounded d-flex flex-column column">
+ <div class="bg-grey-lighten-2 ma-2 mb-0 rounded d-flex flex-column column">
   <div class="d-flex justify-space-between align-center px-4 pt-2">
    <h5 class="font-weight-bold text-subtitle-1">{{ title }}</h5>
    <v-btn density="compact" icon="mdi-plus" variant="text" @click="emit('removeList')">
     <IconDelete />
-    <v-tooltip content-class="bg-red" activator="parent" location="top">Delete list</v-tooltip>
+    <v-tooltip content-class="bg-brown-darken-1" activator="parent" location="top">Delete list</v-tooltip>
    </v-btn>
   </div>
   <div class="pa-3 flex-grow-1 overflow-y-auto column-container">
     <slot />
   </div>
-  <v-card class="mx-auto mt-2" width="100%" hover>
-   <v-toolbar v-if="!isCreatingNewTask" density="compact" class="bg-purple-darken-2 px-4" @click="toggle">
+  <v-card class="mx-auto mt-2 bg-grey-lighten-2" width="100%" variant="flat" hover >
+   <v-toolbar v-if="!isCreatingNewTask" density="compact" class="bg-grey-lighten-2 px-4" @click="toggle">
     <IconPlus />
     <v-toolbar-title class="text-subtitle-1">Add card</v-toolbar-title>
    </v-toolbar>
