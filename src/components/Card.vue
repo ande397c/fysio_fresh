@@ -1,39 +1,38 @@
 <script setup lang="ts">
-import IconDelete from "@/components/icons/IconDelete.vue"
+import IconDelete from "@/components/icons/IconDelete.vue";
+
 defineProps<{
-  title: string
-  desc: string
-}>()
+  title: string;
+  desc: string;
+}>();
 </script>
 
 <template>
-  <v-card  
-    class="card mx-auto position-relative"
-    > 
+  <v-card class="card mx-auto position-relative">
     <v-card-title>{{ title }}</v-card-title>
-    <v-card-text>
-     {{ desc }}
-<v-card-actions class="position-absolute top-0 right-0 hide card-actions">
-<v-btn icon="mdi-delete" @click="$emit('removeTask')" class="text-red-darken-3">
-<IconDelete/>
-</v-btn>
-</v-card-actions>
-    </v-card-text class="pa-0">
-  </v-card> 
+    <v-card-text class="pt-0 pb-1">
+      {{ desc }}
+      <v-card-actions class="card-actions position-absolute top-0 right-0">
+        <v-btn
+          icon="mdi-delete"
+          class="text-red-darken-3"
+          size="small"  
+          @click="$emit('removeTask')"
+        >
+          <IconDelete />
+        </v-btn>
+      </v-card-actions>
+    </v-card-text>
+  </v-card>
 </template>
 
 <style scoped>
-
-.v-card-actions {
-  transition: all 0.1s;
-}
-
-.hide {
+.card-actions {
+  transition: visibility 0.1s;
   visibility: hidden;
 }
 
-.card:hover .card-actions{
-visibility: visible;
+.card:hover .card-actions {
+  visibility: visible;
 }
-
 </style>

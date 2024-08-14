@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import IconElipsis from "./icons/IconElipsis.vue";
 import IconPlus from "./icons/IconPlus.vue";
 import IconDelete from "./icons/IconDelete.vue";
@@ -18,9 +18,13 @@ const cardDesc = ref<string>("");
 
 const toggle = () => {
  isCreatingNewCard.value = !isCreatingNewCard.value;
- cardTitle.value = ""
- cardDesc.value = ""
+ cardTitle.value = "";
+ cardDesc.value = "";
 };
+
+const isSubmitDisabled = computed(() => {
+ return cardTitle.value.trim() === "" || cardDesc.value.trim() === "";
+});
 
 const submit = () => {
  emit("addTask", {
@@ -49,12 +53,10 @@ const submit = () => {
   <v-form v-if="isCreatingNewCard" @submit.prevent="submit">
    <v-container class="pt-0">
     <v-text-field v-model="cardTitle" label="Card title" variant="outlined" />
-    <v-textarea v-model="cardDesc" label="Card description" rows="2" auto-grow variant="outlined"></v-textarea>
+    <v-textarea v-model="cardDesc" label="Card description" rows="1" auto-grow variant="outlined"></v-textarea>
     <div class="mt-2">
-     <v-btn type="submit" class="bg-green-darken-3">Add card</v-btn>
-     <v-btn class="ml-2" type="button" @click="toggle">
-      <IconDelete />
-     </v-btn>
+     <v-btn type="submit" size="small" variant="tonal" class="bg-green-darken-3" :disabled="isSubmitDisabled">Add card</v-btn>
+     <v-btn icon="$vuetify" density="compact" variant="text" class="ml-4" type="button" @click="toggle"> <IconDelete /> </v-btn>
     </div>
    </v-container>
   </v-form>
