@@ -6,7 +6,7 @@ describe("Column", () => {
  it("renders title properly", () => {
   const wrapper = mount(Column, {
    props: {
-    title: "Sample Title"
+    title: "Sample Title",
    },
   });
   expect(wrapper.text()).toContain("Sample Title");
