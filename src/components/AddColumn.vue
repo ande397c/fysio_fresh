@@ -8,6 +8,7 @@ const columnTilte = ref<string>("");
 
 const toggle = () => {
  isCreatingNewColumn.value = !isCreatingNewColumn.value;
+ columnTilte.value = "";
 };
 
 const isSubmitDisabled = computed(() => {
