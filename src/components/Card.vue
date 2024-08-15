@@ -8,7 +8,7 @@ defineProps<{
 </script>
 
 <template>
- <v-card class="card mx-auto position-relative bg-blue-grey">
+ <v-card class="card mx-auto position-relative bg-blue-grey mt-3 cursor-move">
   <v-card-title class="pb-0 text-subtitle-1 font-weight-bold text-blue-grey-lighten-5">{{ title }}</v-card-title>
   <v-card-text class="pt-1 pb-1 pr-4 text-blue-grey-lighten-4">
    {{ desc }}

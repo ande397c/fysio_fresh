@@ -28,7 +28,7 @@ const submit = () => {
 <template>
  <div class="ma-2 mb-0 rounded d-flex flex-column column">
   <v-card v-if="!isCreatingNewColumn" class="mx-auto" width="100%" variant="plain" hover @click="toggle">
-   <v-toolbar density="compact" class="bg-grey-darken-3 px-4">
+   <v-toolbar density="compact" class="bg-blue-grey-lighten-5 px-4">
     <IconPlus />
     <v-toolbar-title class="text-subtitle-1">Add list</v-toolbar-title>
    </v-toolbar>

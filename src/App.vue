@@ -71,7 +71,7 @@ const addColumn = async (column: { title: string }) => {
     <Column v-for="column in data" :key="column.id" :title="column.title" @add-task="addTask(column.id, $event)" @remove-list="removeList(column)">
      <draggable v-model="column.tasks" :animation="200" ghost-class="ghost-card" group="tasks" :item-key="'id'" direction="vertical">
       <template #item="{ element }">
-       <Card :key="element.id" :title="element.title" :desc="element.desc" class="mt-3 cursor-move" @remove-task="removeTask(element)" />
+       <Card :key="element.id" :title="element.title" :desc="element.desc" @remove-task="removeTask(element)" />
       </template>
      </draggable>
     </Column>
